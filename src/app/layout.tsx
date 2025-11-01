@@ -2,6 +2,7 @@ import { Icons } from "@/components/icons";
 import SearchBox from "@/components/searchbox";
 import type { Metadata } from "next";
 import localFont from "next/font/local";
+import { Suspense } from "react";
 import "./globals.css";
 
 const geistSans = localFont({
@@ -67,7 +68,9 @@ export default function RootLayout({
               </p>
 
               <div className="mx-auto mt-16 flex w-full max-w-2xl flex-col">
-                <SearchBox />
+                <Suspense>
+                  <SearchBox />
+                </Suspense>
                 <div className="py-8">{children}</div>
               </div>
             </div>
